@@ -3,14 +3,11 @@ import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const galleryImages = [
-  { src: '/images/gallery-1.jpg', alt: 'Montagem de estrutura metálica residencial', category: 'Serralheria' },
-  { src: '/images/gallery-2.jpg', alt: 'Mezanino metálico industrial', category: 'Caldeiraria' },
-  { src: '/images/gallery-3.jpg', alt: 'Estrutura metálica vista superior', category: 'Caldeiraria' },
-  { src: '/images/gallery-4.jpg', alt: 'Treliças estruturais de aço', category: 'Caldeiraria' },
-  { src: '/images/gallery-5.jpg', alt: 'Estrutura metálica residencial', category: 'Serralheria' },
-  { src: '/images/gallery-6.jpg', alt: 'Detalhes de solda em treliça', category: 'Serralheria' },
-  { src: '/images/gallery-7.jpg', alt: 'Mezanino com escada metálica', category: 'Caldeiraria' },
-  { src: '/images/gallery-8.jpg', alt: 'Estrutura metálica completa', category: 'Caldeiraria' },
+  { src: '/images/gallery-1.jpg', alt: 'Montagem de estrutura metálica', category: 'Serralheria' },
+  { src: '/images/gallery-2.jpg', alt: 'Estrutura metálica industrial', category: 'Caldeiraria' },
+  { src: '/images/gallery-3.jpg', alt: 'Projeto estrutural em aço', category: 'Caldeiraria' },
+  { src: '/images/gallery-4.jpg', alt: 'Detalhe de soldagem', category: 'Serralheria' },
+  { src: '/images/gallery-5.jpg', alt: 'Estrutura metálica completa', category: 'Caldeiraria' },
 ];
 
 export default function Gallery() {

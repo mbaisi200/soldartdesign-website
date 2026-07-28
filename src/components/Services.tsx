@@ -23,7 +23,7 @@ const services = [
     title: 'Manutenção',
     description:
       'Serviços de manutenção preventiva e corretiva para estruturas metálicas. Reparos, reforços estruturais e substituição de componentes, garantindo a longevidade e segurança das instalações.',
-    image: '/images/gallery-8.jpg',
+    image: '/images/gallery-3.jpg',
     features: ['Manutenção Preventiva', 'Manutenção Corretiva', 'Reforços Estruturais', 'Reformas'],
   },
 ];

@@ -64,7 +64,7 @@ export default function Gallery() {
               onClick={() => setFilter(cat)}
               className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                 filter === cat
-                  ? 'bg-brand-600 text-white shadow-lg shadow-brand-300/30'
+                  ? 'bg-brand-600 text-white shadow-lg shadow-brand-400/30'
                   : 'bg-steel-100 text-steel-600 hover:bg-steel-200'
               }`}
             >
@@ -99,7 +99,7 @@ export default function Gallery() {
                   </div>
                 </div>
                 <div className="absolute bottom-4 left-4 right-4">
-                  <span className="text-xs text-brand-300 font-semibold uppercase tracking-wider">{image.category}</span>
+                  <span className="text-xs text-brand-200 font-semibold uppercase tracking-wider">{image.category}</span>
                   <p className="text-white text-sm mt-1">{image.alt}</p>
                 </div>
               </div>

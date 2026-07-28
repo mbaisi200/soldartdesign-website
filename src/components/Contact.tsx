@@ -21,7 +21,7 @@ export default function Contact() {
     <section id="contato" className="py-24 bg-steel-50 relative overflow-hidden">
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-1/3 w-80 h-80 bg-brand-200 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-1/3 w-96 h-96 bg-steel-200 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-1/3 w-96 h-96 bg-brand-100 rounded-full blur-3xl" />
       </div>
 
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -65,7 +65,7 @@ export default function Contact() {
             {/* Phone Card */}
             <a
               href="tel:+5511955522564"
-              className="group block p-6 bg-white hover:bg-brand-50 border border-steel-200 hover:border-brand-200 rounded-2xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+              className="group block p-6 bg-white hover:bg-brand-50 border border-steel-200 hover:border-brand-300 rounded-2xl transition-all duration-300 hover:shadow-lg hover:shadow-brand-200/30 hover:-translate-y-1"
             >
               <div className="flex items-start gap-4">
                 <div className="w-14 h-14 bg-brand-100 group-hover:bg-brand-500 rounded-2xl flex items-center justify-center flex-shrink-0 transition-colors">
@@ -84,7 +84,7 @@ export default function Contact() {
               href="https://www.google.com/maps/search/?api=1&query=Rua+João+Atílio+Franzini+55+Itatiba+SP"
               target="_blank"
               rel="noopener noreferrer"
-              className="group block p-6 bg-white hover:bg-brand-50 border border-steel-200 hover:border-brand-200 rounded-2xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+              className="group block p-6 bg-white hover:bg-brand-50 border border-steel-200 hover:border-brand-300 rounded-2xl transition-all duration-300 hover:shadow-lg hover:shadow-brand-200/30 hover:-translate-y-1"
             >
               <div className="flex items-start gap-4">
                 <div className="w-14 h-14 bg-brand-100 group-hover:bg-brand-500 rounded-2xl flex items-center justify-center flex-shrink-0 transition-colors">
@@ -182,7 +182,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-brand-300/40 hover:scale-[1.02] active:scale-[0.98]"
+                  className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-brand-400/40 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <Send className="w-5 h-5" />
                   Enviar via WhatsApp
@@ -193,7 +193,7 @@ export default function Contact() {
         </div>
 
         {/* Map */}
-        <div className={`mt-16 rounded-2xl overflow-hidden shadow-xl border border-steel-200 ${isVisible ? 'animate-fade-in-up animation-delay-400' : 'opacity-0'}`}>
+        <div className={`mt-16 rounded-2xl overflow-hidden shadow-xl border border-brand-200 ${isVisible ? 'animate-fade-in-up animation-delay-400' : 'opacity-0'}`}>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.5!2d-46.8388!3d-23.0058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDAwJzIwLjkiUyA0NsKwNTAnMTkuNyJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
             width="100%"

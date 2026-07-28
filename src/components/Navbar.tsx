@@ -25,7 +25,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-steel-200'
+          ?           'bg-brand-600/95 backdrop-blur-md shadow-lg border-b border-brand-500'
           : 'bg-transparent'
       }`}
     >
@@ -36,12 +36,12 @@ export default function Navbar() {
             <div className={`flex items-center gap-1 transition-colors duration-300`}>
               <div className="relative">
                 <span className={`font-display text-2xl sm:text-3xl font-bold tracking-wider transition-colors duration-300 ${
-                  scrolled ? 'text-steel-900' : 'text-white'
+                  scrolled ? 'text-white' : 'text-white'
                 }`}>
                   SOLDART
                 </span>
                 <span className={`font-display text-2xl sm:text-3xl font-bold tracking-wider transition-colors duration-300 ${
-                  scrolled ? 'text-brand-600' : 'text-brand-400'
+                  scrolled ? 'text-brand-200' : 'text-brand-200'
                 }`}>
                   DESIGN
                 </span>
@@ -55,9 +55,9 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-brand-500/10 ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-white/10 ${
                   scrolled
-                    ? 'text-steel-700 hover:text-brand-600'
+                    ? 'text-white/90 hover:text-white'
                     : 'text-white/90 hover:text-white'
                 }`}
               >
@@ -79,7 +79,7 @@ export default function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`md:hidden p-2 rounded-lg transition-colors ${
-              scrolled ? 'text-steel-700' : 'text-white'
+              scrolled ? 'text-white' : 'text-white'
             }`}
             aria-label="Menu"
           >
@@ -94,14 +94,14 @@ export default function Navbar() {
           isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="bg-white/95 backdrop-blur-md border-t border-steel-200 shadow-xl">
+        <div className="bg-brand-600/95 backdrop-blur-md border-t border-brand-500 shadow-xl">
           <div className="px-4 py-4 space-y-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-4 py-3 text-steel-700 hover:text-brand-600 hover:bg-brand-50 rounded-lg text-base font-medium transition-colors"
+                className="block px-4 py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-lg text-base font-medium transition-colors"
               >
                 {link.label}
               </a>

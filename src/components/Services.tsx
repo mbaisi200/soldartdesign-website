@@ -35,7 +35,7 @@ export default function Services() {
     <section id="servicos" className="py-24 bg-steel-50 relative overflow-hidden">
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-10 left-1/4 w-64 h-64 bg-brand-200 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-steel-200 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-brand-100 rounded-full blur-3xl" />
       </div>
 
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -62,7 +62,7 @@ export default function Services() {
             return (
               <div
                 key={service.title}
-                className={`group bg-white rounded-2xl overflow-hidden border border-steel-100 hover:border-brand-200 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
+                className={`group bg-white rounded-2xl overflow-hidden border border-steel-100 hover:border-brand-300 shadow-sm hover:shadow-2xl hover:shadow-brand-200/30 transition-all duration-500 hover:-translate-y-2 ${
                   isVisible ? 'animate-fade-in-up' : 'opacity-0'
                 }`}
                 style={{ animationDelay: `${(index + 1) * 200}ms` }}

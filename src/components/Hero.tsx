@@ -15,26 +15,26 @@ export default function Hero() {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-20 right-10 w-72 h-72 bg-brand-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-brand-600/5 rounded-full blur-3xl" />
+      <div className="absolute top-20 right-10 w-72 h-72 bg-brand-400/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
         <div className="max-w-3xl">
           {/* Badge */}
-          <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-2 bg-brand-500/20 border border-brand-500/30 rounded-full text-brand-300 text-sm font-medium mb-8 backdrop-blur-sm">
-            <div className="w-2 h-2 bg-brand-400 rounded-full animate-pulse" />
+          <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-2 bg-brand-500/20 border border-brand-400/30 rounded-full text-brand-200 text-sm font-medium mb-8 backdrop-blur-sm">
+            <div className="w-2 h-2 bg-brand-300 rounded-full animate-pulse" />
             Excelência em Soluções Metálicas
           </div>
 
           {/* Heading */}
           <h1 className="animate-fade-in-up animation-delay-100 font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
             Estruturas que
-            <span className="block text-brand-400">sustentam sonhos</span>
+            <span className="block text-brand-300">sustentam sonhos</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="animate-fade-in-up animation-delay-200 text-lg sm:text-xl text-steel-300 max-w-2xl mb-10 leading-relaxed">
+          <p className="animate-fade-in-up animation-delay-200 text-lg sm:text-xl text-white/80 max-w-2xl mb-10 leading-relaxed">
             Especialistas em serralheria fina, caldeiraria e manutenção. 
             Transformamos metal em soluções de alto padrão para os segmentos 
             residencial, comercial e industrial.

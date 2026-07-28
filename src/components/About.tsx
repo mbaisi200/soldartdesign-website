@@ -31,7 +31,7 @@ export default function About() {
     <section id="sobre" className="py-24 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-50 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-72 h-72 bg-steel-100 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-100 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
 
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -100,7 +100,7 @@ export default function About() {
             return (
               <div
                 key={feature.title}
-                className={`group p-6 bg-steel-50 hover:bg-white rounded-2xl border border-steel-100 hover:border-brand-200 transition-all duration-500 hover:shadow-xl hover:shadow-brand-100/50 hover:-translate-y-1 ${
+                className={`group p-6 bg-steel-50 hover:bg-white rounded-2xl border border-steel-100 hover:border-brand-200 transition-all duration-500 hover:shadow-xl hover:shadow-brand-200/50 hover:-translate-y-1 ${
                   isVisible ? 'animate-fade-in-up' : 'opacity-0'
                 }`}
                 style={{ animationDelay: `${(index + 2) * 150}ms` }}

@@ -24,68 +24,72 @@ const features = [
   },
 ];
 
+function Eyebrow({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="inline-flex items-center gap-3 mb-6">
+      <span className="h-px w-10 bg-brand-500" />
+      <span className="text-brand-400 text-xs font-bold uppercase tracking-[0.28em]">{children}</span>
+    </div>
+  );
+}
+
 export default function About() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="sobre" className="py-24 bg-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-brand-50 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-100 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
+    <section id="sobre" className="py-28 bg-ink-950 relative overflow-hidden">
+      {/* Ambient */}
+      <div className="absolute top-1/3 -left-40 w-[30rem] h-[30rem] bg-brand-600/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Text Content */}
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+          {/* Text */}
           <div className={`${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-100 rounded-full text-brand-700 text-sm font-semibold mb-6">
-              <div className="w-1.5 h-1.5 bg-brand-500 rounded-full" />
-              Nossa História
-            </div>
-            <h2 className="font-display text-4xl sm:text-5xl font-bold text-steel-900 mb-6">
-              Construindo
-              <span className="text-brand-600"> confiança</span>
-              <br />há mais de 3 anos
+            <Eyebrow>Nossa história</Eyebrow>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold uppercase text-white leading-[1.02] mb-8">
+              Construindo <span className="text-gradient-brand">confiança</span>
+              <br />
+              há mais de 3 anos
             </h2>
-            <div className="space-y-4 text-steel-600 leading-relaxed text-lg">
+            <div className="space-y-5 text-zinc-400 leading-relaxed text-lg">
               <p>
                 Fundada com o propósito de oferecer soluções metálicas de alto padrão, a{' '}
-                <strong className="text-steel-800">SOLDARTDESIGN</strong> possui 3 anos de atuação 
-                no mercado, consolidando-se como uma empresa especializada em serralheria fina, 
-                caldeiraria e manutenção.
+                <strong className="text-white font-semibold">SOLDARTDESIGN</strong> consolidou-se
+                como referência em serralheria fina, caldeiraria e manutenção.
               </p>
               <p>
-                Ao longo de sua trajetória, construiu uma reputação sólida baseada na excelência 
-                técnica, no rigor com a qualidade, no cumprimento de prazos e no compromisso com 
-                a segurança.
+                Uma reputação construída sobre excelência técnica, rigor com a qualidade,
+                cumprimento de prazos e compromisso absoluto com a segurança.
               </p>
               <p>
-                Atendendo aos segmentos <strong className="text-steel-800">residencial, comercial 
-                e industrial</strong>, a empresa mantém foco contínuo na inovação, na durabilidade 
-                de suas estruturas e na entrega de soluções eficientes, alinhadas às necessidades 
-                específicas de cada cliente.
+                Atendemos os segmentos <strong className="text-white font-semibold">residencial,
+                comercial e industrial</strong> — com foco contínuo em inovação, durabilidade
+                e soluções sob medida para cada cliente.
               </p>
             </div>
           </div>
 
-          {/* Image + Features */}
+          {/* Image */}
           <div className={`${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
             <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl">
+              <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-brand-500/40 via-transparent to-transparent blur-xl" />
+              <div className="relative rounded-[1.75rem] overflow-hidden border border-white/10">
                 <img
                   src="/images/gallery-1.jpg"
                   alt="Profissional SOLDARTDESIGN trabalhando"
-                  className="w-full h-80 object-cover"
+                  className="w-full h-[26rem] object-cover hover:scale-105 transition-transform duration-[1.2s]"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-transparent to-transparent" />
               </div>
               {/* Floating card */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-5 border border-steel-100">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center">
-                    <Award className="w-6 h-6 text-brand-600" />
+              <div className="absolute -bottom-8 -left-4 sm:-left-8 bg-ink-800/90 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl p-5 pr-7 animate-float-y">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center shadow-lg shadow-brand-500/30">
+                    <Award className="w-7 h-7 text-white" />
                   </div>
                   <div>
-                    <div className="font-display text-2xl font-bold text-steel-900">3+</div>
-                    <div className="text-steel-500 text-sm">Anos no Mercado</div>
+                    <div className="font-display text-3xl font-bold text-white">3+</div>
+                    <div className="text-zinc-400 text-sm uppercase tracking-wider">Anos no mercado</div>
                   </div>
                 </div>
               </div>
@@ -93,27 +97,27 @@ export default function About() {
           </div>
         </div>
 
-        {/* Features Grid */}
-        <div className="mt-24 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Features */}
+        <div className="mt-28 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
               <div
                 key={feature.title}
-                className={`group p-6 bg-steel-50 hover:bg-white rounded-2xl border border-steel-100 hover:border-brand-200 transition-all duration-500 hover:shadow-xl hover:shadow-brand-200/50 hover:-translate-y-1 ${
+                className={`group relative p-7 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-brand-500/40 hover:bg-white/[0.05] transition-all duration-500 hover:-translate-y-2 overflow-hidden ${
                   isVisible ? 'animate-fade-in-up' : 'opacity-0'
                 }`}
-                style={{ animationDelay: `${(index + 2) * 150}ms` }}
+                style={{ animationDelay: `${(index + 1) * 120}ms` }}
               >
-                <div className="w-12 h-12 bg-brand-100 group-hover:bg-brand-500 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300">
-                  <Icon className="w-6 h-6 text-brand-600 group-hover:text-white transition-colors duration-300" />
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="font-display text-sm text-zinc-600 mb-5">0{index + 1}</div>
+                <div className="w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mb-5 group-hover:bg-brand-500 group-hover:shadow-lg group-hover:shadow-brand-500/30 transition-all duration-300">
+                  <Icon className="w-6 h-6 text-brand-400 group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="font-display text-lg font-semibold text-steel-900 mb-2">
+                <h3 className="font-display text-xl font-semibold uppercase tracking-wide text-white mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-steel-500 text-sm leading-relaxed">
-                  {feature.description}
-                </p>
+                <p className="text-zinc-500 text-sm leading-relaxed">{feature.description}</p>
               </div>
             );
           })}

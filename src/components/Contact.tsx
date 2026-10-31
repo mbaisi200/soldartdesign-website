@@ -2,6 +2,9 @@ import { Phone, MapPin, MessageCircle, Clock, Send } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useState } from 'react';
 
+const inputClasses =
+  'w-full px-4 py-3.5 bg-white/[0.04] border border-white/10 rounded-2xl text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-brand-500/60 focus:border-brand-500/60 transition-all';
+
 export default function Contact() {
   const { ref, isVisible } = useScrollAnimation();
   const [formData, setFormData] = useState({
@@ -17,172 +20,182 @@ export default function Contact() {
     window.open(`https://wa.me/5511955522564?text=${text}`, '_blank');
   };
 
+  const cards = [
+    {
+      href: 'https://wa.me/5511955522564?text=Olá! Gostaria de solicitar um orçamento.',
+      icon: MessageCircle,
+      title: 'WhatsApp',
+      main: '(11) 95552-2564',
+      sub: 'Clique para conversar',
+      accent: true,
+    },
+    {
+      href: 'tel:+5511955522564',
+      icon: Phone,
+      title: 'Telefone',
+      main: '(11) 95552-2564',
+      sub: 'Ligue agora',
+      accent: false,
+    },
+  ];
+
   return (
-    <section id="contato" className="py-24 bg-steel-50 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-1/3 w-80 h-80 bg-brand-200 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-1/3 w-96 h-96 bg-brand-100 rounded-full blur-3xl" />
-      </div>
+    <section id="contato" className="py-28 bg-ink-900 relative overflow-hidden">
+      <div className="absolute inset-0 bg-brushed opacity-40 pointer-events-none" />
+      <div className="absolute top-20 right-0 w-[26rem] h-[26rem] bg-brand-600/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Section Header */}
-        <div className={`text-center max-w-3xl mx-auto mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-100 rounded-full text-brand-700 text-sm font-semibold mb-6">
-            <div className="w-1.5 h-1.5 bg-brand-500 rounded-full" />
-            Fale Conosco
+        {/* Header */}
+        <div className={`max-w-3xl mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <div className="inline-flex items-center gap-3 mb-6">
+            <span className="h-px w-10 bg-brand-500" />
+            <span className="text-brand-400 text-xs font-bold uppercase tracking-[0.28em]">Fale conosco</span>
           </div>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold text-steel-900 mb-4">
-            Entre em
-            <span className="text-brand-600"> contato</span>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold uppercase text-white leading-[1.02] mb-5">
+            Vamos <span className="text-gradient-brand">conversar?</span>
           </h2>
-          <p className="text-steel-500 text-lg">
-            Estamos prontos para atender você. Solicite um orçamento sem compromisso!
+          <p className="text-zinc-400 text-lg">
+            Solicite um orçamento sem compromisso. Respondemos rápido.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-8">
-          {/* Contact Info */}
-          <div className={`lg:col-span-2 space-y-6 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
-            {/* WhatsApp Card */}
-            <a
-              href="https://wa.me/5511955522564?text=Olá! Gostaria de solicitar um orçamento."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block p-6 bg-green-50 hover:bg-green-100 border border-green-200 rounded-2xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-green-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <MessageCircle className="w-7 h-7 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-steel-900 mb-1">WhatsApp</h3>
-                  <p className="text-green-700 font-semibold text-lg">(11) 95552-2564</p>
-                  <p className="text-steel-500 text-sm mt-1">Clique para conversar</p>
-                </div>
-              </div>
-            </a>
+        <div className="grid lg:grid-cols-5 gap-6">
+          {/* Info cards */}
+          <div className={`lg:col-span-2 space-y-5 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
+            {cards.map((card) => {
+              const Icon = card.icon;
+              return (
+                <a
+                  key={card.title}
+                  href={card.href}
+                  target={card.href.startsWith('http') ? '_blank' : undefined}
+                  rel={card.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className={`group flex items-center gap-5 p-6 rounded-3xl border transition-all duration-300 hover:-translate-y-1 ${
+                    card.accent
+                      ? 'bg-green-500/[0.07] border-green-500/25 hover:border-green-500/50 hover:shadow-[0_16px_40px_-12px_rgba(34,197,94,0.35)]'
+                      : 'bg-white/[0.03] border-white/10 hover:border-brand-500/40 hover:shadow-[0_16px_40px_-12px_rgba(245,158,11,0.25)]'
+                  }`}
+                >
+                  <div
+                    className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-110 ${
+                      card.accent
+                        ? 'bg-green-500 shadow-lg shadow-green-500/30'
+                        : 'bg-brand-500/15 border border-brand-500/30'
+                    }`}
+                  >
+                    <Icon className={`w-7 h-7 ${card.accent ? 'text-white' : 'text-brand-400'}`} />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-lg font-bold uppercase tracking-wide text-white">{card.title}</h3>
+                    <p className={`font-bold text-lg ${card.accent ? 'text-green-400' : 'text-zinc-200'}`}>{card.main}</p>
+                    <p className="text-zinc-500 text-sm">{card.sub}</p>
+                  </div>
+                </a>
+              );
+            })}
 
-            {/* Phone Card */}
-            <a
-              href="tel:+5511955522564"
-              className="group block p-6 bg-white hover:bg-brand-50 border border-steel-200 hover:border-brand-300 rounded-2xl transition-all duration-300 hover:shadow-lg hover:shadow-brand-200/30 hover:-translate-y-1"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-brand-100 group-hover:bg-brand-500 rounded-2xl flex items-center justify-center flex-shrink-0 transition-colors">
-                  <Phone className="w-7 h-7 text-brand-600 group-hover:text-white transition-colors" />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-steel-900 mb-1">Telefone</h3>
-                  <p className="text-steel-700 font-semibold text-lg">(11) 95552-2564</p>
-                  <p className="text-steel-500 text-sm mt-1">Ligue agora</p>
-                </div>
-              </div>
-            </a>
-
-            {/* Address Card */}
+            {/* Address */}
             <a
               href="https://www.google.com/maps/search/?api=1&query=Rua+João+Atílio+Franzini+55+Itatiba+SP"
               target="_blank"
               rel="noopener noreferrer"
-              className="group block p-6 bg-white hover:bg-brand-50 border border-steel-200 hover:border-brand-300 rounded-2xl transition-all duration-300 hover:shadow-lg hover:shadow-brand-200/30 hover:-translate-y-1"
+              className="group flex items-start gap-5 p-6 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-brand-500/40 transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-brand-100 group-hover:bg-brand-500 rounded-2xl flex items-center justify-center flex-shrink-0 transition-colors">
-                  <MapPin className="w-7 h-7 text-brand-600 group-hover:text-white transition-colors" />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-steel-900 mb-1">Endereço</h3>
-                  <p className="text-steel-600 text-sm leading-relaxed">
-                    Rua João Atílio Franzini, 55<br />
-                    Lot. Parque Empresarial Adelelmo Corradini<br />
-                    Itatiba - SP, 13257-596
-                  </p>
-                  <p className="text-brand-600 text-sm mt-2 font-medium">Ver no mapa →</p>
-                </div>
+              <div className="w-14 h-14 rounded-2xl bg-brand-500/15 border border-brand-500/30 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <MapPin className="w-7 h-7 text-brand-400" />
+              </div>
+              <div>
+                <h3 className="font-display text-lg font-bold uppercase tracking-wide text-white mb-1">Endereço</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed">
+                  Rua João Atílio Franzini, 55<br />
+                  Lot. Parque Empresarial Adelelmo Corradini<br />
+                  Itatiba - SP, 13257-596
+                </p>
+                <p className="text-brand-400 text-sm mt-2 font-semibold">Ver no mapa →</p>
               </div>
             </a>
 
             {/* Hours */}
-            <div className="p-6 bg-white border border-steel-200 rounded-2xl">
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-7 h-7 text-brand-600" />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-steel-900 mb-1">Horário</h3>
-                  <p className="text-steel-600 text-sm">Seg - Sex: 08:00 - 18:00</p>
-                  <p className="text-steel-600 text-sm">Sáb: 08:00 - 12:00</p>
-                </div>
+            <div className="flex items-start gap-5 p-6 rounded-3xl bg-white/[0.03] border border-white/10">
+              <div className="w-14 h-14 rounded-2xl bg-brand-500/15 border border-brand-500/30 flex items-center justify-center shrink-0">
+                <Clock className="w-7 h-7 text-brand-400" />
+              </div>
+              <div>
+                <h3 className="font-display text-lg font-bold uppercase tracking-wide text-white mb-1">Horário</h3>
+                <p className="text-zinc-400 text-sm">Seg — Sex: 08:00 às 18:00</p>
+                <p className="text-zinc-400 text-sm">Sábado: 08:00 às 12:00</p>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Form */}
           <div className={`lg:col-span-3 ${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
-            <div className="bg-white rounded-2xl border border-steel-200 shadow-xl p-8">
-              <h3 className="font-display text-2xl font-bold text-steel-900 mb-2">
-                Solicite um Orçamento
+            <div className="rounded-[1.75rem] bg-ink-950 border border-white/10 p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/70 to-transparent" />
+              <h3 className="font-display text-2xl sm:text-3xl font-bold uppercase text-white mb-2">
+                Solicite um orçamento
               </h3>
-              <p className="text-steel-500 mb-8">
-                Preencha o formulário e entraremos em contato via WhatsApp.
+              <p className="text-zinc-500 mb-8">
+                Preencha e caia direto no nosso WhatsApp.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label className="block text-sm font-semibold text-steel-700 mb-2">Nome completo</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 bg-steel-50 border border-steel-200 rounded-xl text-steel-800 placeholder-steel-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
-                    placeholder="Seu nome"
-                  />
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Nome completo</label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className={inputClasses}
+                      placeholder="Seu nome"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Telefone</label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className={inputClasses}
+                      placeholder="(00) 00000-0000"
+                    />
+                  </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-steel-700 mb-2">Telefone</label>
-                  <input
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3 bg-steel-50 border border-steel-200 rounded-xl text-steel-800 placeholder-steel-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
-                    placeholder="(00) 00000-0000"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-steel-700 mb-2">Serviço de interesse</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Serviço de interesse</label>
                   <select
                     required
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-4 py-3 bg-steel-50 border border-steel-200 rounded-xl text-steel-800 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all appearance-none"
+                    className={`${inputClasses} appearance-none ${formData.service ? '' : 'text-zinc-600'}`}
                   >
-                    <option value="">Selecione um serviço</option>
-                    <option value="Serralheria Fina">Serralheria Fina</option>
-                    <option value="Caldeiraria">Caldeiraria</option>
-                    <option value="Manutenção">Manutenção</option>
-                    <option value="Outro">Outro</option>
+                    <option value="" className="bg-ink-900">Selecione um serviço</option>
+                    <option value="Serralheria Fina" className="bg-ink-900">Serralheria Fina</option>
+                    <option value="Caldeiraria" className="bg-ink-900">Caldeiraria</option>
+                    <option value="Manutenção" className="bg-ink-900">Manutenção</option>
+                    <option value="Outro" className="bg-ink-900">Outro</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-steel-700 mb-2">Mensagem</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Mensagem</label>
                   <textarea
                     required
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 bg-steel-50 border border-steel-200 rounded-xl text-steel-800 placeholder-steel-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all resize-none"
+                    className={`${inputClasses} resize-none`}
                     placeholder="Descreva o que você precisa..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-brand-400/40 hover:scale-[1.02] active:scale-[0.98]"
+                  className="btn-shine w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-400 hover:to-brand-500 text-white font-bold rounded-2xl transition-all duration-300 shadow-lg shadow-brand-500/25 hover:shadow-brand-400/40 hover:-translate-y-0.5 active:translate-y-0"
                 >
                   <Send className="w-5 h-5" />
                   Enviar via WhatsApp
@@ -193,12 +206,12 @@ export default function Contact() {
         </div>
 
         {/* Map */}
-        <div className={`mt-16 rounded-2xl overflow-hidden shadow-xl border border-brand-200 ${isVisible ? 'animate-fade-in-up animation-delay-400' : 'opacity-0'}`}>
+        <div className={`mt-12 rounded-[1.75rem] overflow-hidden border border-white/10 shadow-2xl ${isVisible ? 'animate-fade-in-up animation-delay-400' : 'opacity-0'}`}>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.5!2d-46.8388!3d-23.0058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDAwJzIwLjkiUyA0NsKwNTAnMTkuNyJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
             width="100%"
             height="350"
-            style={{ border: 0 }}
+            style={{ border: 0, filter: 'grayscale(1) invert(0.9) contrast(0.9)' }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

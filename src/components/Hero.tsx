@@ -1,87 +1,107 @@
-import { ChevronDown, Phone, ArrowRight } from 'lucide-react';
+import { ChevronDown, Phone, ArrowRight, MapPin } from 'lucide-react';
+
+const stats = [
+  { value: '3+', label: 'Anos de experiência' },
+  { value: '100%', label: 'Compromisso com qualidade' },
+  { value: '3', label: 'Segmentos atendidos' },
+];
 
 export default function Hero() {
   return (
     <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background */}
       <div className="absolute inset-0">
         <img
           src="/images/hero.jpg"
           alt="Estrutura metálica SOLDARTDESIGN"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-steel-950/90 via-steel-900/75 to-steel-900/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-steel-950/60 via-transparent to-steel-950/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/80 to-ink-950/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-transparent to-ink-950/60" />
+        <div className="absolute inset-0 bg-brushed opacity-60" />
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-20 right-10 w-72 h-72 bg-brand-400/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl" />
+      {/* Ambient glow */}
+      <div className="absolute -top-32 right-0 w-[36rem] h-[36rem] bg-brand-500/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-brand-600/10 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-        <div className="max-w-3xl">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-24 w-full">
+        <div className="max-w-4xl">
           {/* Badge */}
-          <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-2 bg-brand-500/20 border border-brand-400/30 rounded-full text-brand-200 text-sm font-medium mb-8 backdrop-blur-sm">
-            <div className="w-2 h-2 bg-brand-300 rounded-full animate-pulse" />
-            Excelência em Soluções Metálicas
+          <div className="animate-fade-in-up inline-flex items-center gap-3 px-4 py-2 rounded-full border border-brand-500/30 bg-brand-500/10 backdrop-blur-sm mb-8">
+            <span className="w-2 h-2 rounded-full bg-brand-400 animate-spark" />
+            <span className="text-brand-200 text-xs sm:text-sm font-semibold uppercase tracking-[0.22em]">
+              Serralheria fina • Caldeiraria • Manutenção
+            </span>
           </div>
 
           {/* Heading */}
-          <h1 className="animate-fade-in-up animation-delay-100 font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-            Estruturas que
-            <span className="block text-brand-300">sustentam sonhos</span>
+          <h1 className="font-display font-bold uppercase leading-[0.95] mb-8">
+            <span className="animate-fade-in-up block text-5xl sm:text-7xl lg:text-8xl text-white tracking-tight">
+              Estruturas que
+            </span>
+            <span className="animate-fade-in-up animation-delay-100 block text-5xl sm:text-7xl lg:text-8xl text-gradient-brand tracking-tight">
+              sustentam
+            </span>
+            <span className="animate-fade-in-up animation-delay-200 block text-5xl sm:text-7xl lg:text-8xl text-stroke tracking-tight">
+              sonhos
+            </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="animate-fade-in-up animation-delay-200 text-lg sm:text-xl text-white/80 max-w-2xl mb-10 leading-relaxed">
-            Especialistas em serralheria fina, caldeiraria e manutenção. 
-            Transformamos metal em soluções de alto padrão para os segmentos 
-            residencial, comercial e industrial.
+          <p className="animate-fade-in-up animation-delay-300 text-lg sm:text-xl text-zinc-400 max-w-2xl mb-10 leading-relaxed">
+            Transformamos metal em soluções de alto padrão para os segmentos
+            residencial, comercial e industrial — com precisão, segurança e acabamento impecável.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="animate-fade-in-up animation-delay-300 flex flex-col sm:flex-row gap-4">
+          {/* CTAs */}
+          <div className="animate-fade-in-up animation-delay-400 flex flex-col sm:flex-row gap-4 mb-16">
             <a
               href="https://wa.me/5511955522564?text=Olá! Gostaria de solicitar um orçamento."
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-full transition-all duration-300 shadow-2xl shadow-brand-600/30 hover:shadow-brand-500/40 hover:scale-105"
+              className="btn-shine group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-400 hover:to-brand-500 text-white font-bold rounded-full transition-all duration-300 shadow-2xl shadow-brand-500/30 hover:shadow-brand-400/50 hover:-translate-y-0.5"
             >
               <Phone className="w-5 h-5" />
               Solicitar Orçamento
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="#sobre"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/20 hover:border-white/40 text-white font-semibold rounded-full transition-all duration-300 backdrop-blur-sm hover:bg-white/10"
+              href="#galeria"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/15 hover:border-brand-400/60 text-white font-semibold transition-all duration-300 backdrop-blur-sm hover:bg-white/5"
             >
-              Conheça a Empresa
+              Ver Projetos
             </a>
           </div>
 
           {/* Stats */}
-          <div className="animate-fade-in-up animation-delay-500 mt-16 grid grid-cols-3 gap-8 max-w-lg">
-            <div>
-              <div className="font-display text-3xl sm:text-4xl font-bold text-white">3+</div>
-              <div className="text-steel-400 text-sm mt-1">Anos de<br />Experiência</div>
-            </div>
-            <div>
-              <div className="font-display text-3xl sm:text-4xl font-bold text-white">100%</div>
-              <div className="text-steel-400 text-sm mt-1">Compromisso<br />com Qualidade</div>
-            </div>
-            <div>
-              <div className="font-display text-3xl sm:text-4xl font-bold text-white">3</div>
-              <div className="text-steel-400 text-sm mt-1">Segmentos<br />Atendidos</div>
-            </div>
+          <div className="animate-fade-in-up animation-delay-500 grid grid-cols-3 max-w-2xl border-t border-white/10 pt-8 gap-6">
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <div className="font-display text-3xl sm:text-5xl font-bold text-white">
+                  {stat.value}
+                </div>
+                <div className="text-zinc-500 text-xs sm:text-sm mt-2 uppercase tracking-wider">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Location */}
+          <div className="animate-fade-in-up animation-delay-600 mt-10 inline-flex items-center gap-2 text-zinc-500 text-sm">
+            <MapPin className="w-4 h-4 text-brand-500" />
+            Itatiba — São Paulo
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <a href="#sobre" className="text-white/50 hover:text-white/80 transition-colors">
-          <ChevronDown className="w-8 h-8" />
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-600">Role</span>
+        <a href="#sobre" className="text-zinc-500 hover:text-brand-400 transition-colors animate-bounce">
+          <ChevronDown className="w-6 h-6" />
         </a>
       </div>
     </section>
